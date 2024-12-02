@@ -37,6 +37,7 @@ jobs:
           ls
       - name: Build
         run: |
+          choco install ninja
           cd libcxx-19.1.4.src
           cmake -G"Ninja" -S . -B build
           cmake --build build --config Release
