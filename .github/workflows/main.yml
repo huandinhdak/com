@@ -33,7 +33,7 @@ jobs:
           ls
           7z.exe x -so libcxx.tar.xz | 7z.exe x -si -ttar
           ls
-          cd libcxx
+          cd libcxx-19.1.4.src
           ls
 
       # Runs a set of commands using the runners shell
