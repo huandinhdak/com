@@ -38,7 +38,7 @@ jobs:
       - name: Build
         run: |
           cd libcxx-19.1.4.src
-          cmake -S . -B build
+          cmake -G"Ninja" -S . -B build
           cmake --build build --config Release
           cd build
           ls
