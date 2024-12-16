@@ -1,0 +1,28 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup
+      run: |
+        choco install ninja
+        vcpkg install llvm
+        C:
+        cd vcpkg
+        cd installed
+        ls
+    - name: Release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: C:/vcpkg/installed/
+        asset_name: mything
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is my release text"
